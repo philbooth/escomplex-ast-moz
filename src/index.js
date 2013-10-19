@@ -12,17 +12,18 @@ exports.walk = walk;
 function walk (tree, settings, callbacks) {
     var syntaxes
 
+    check.verifyObject(tree, 'Invalid syntax tree');
+    check.verifyArray(tree.body, 'Invalid syntax tree');
+    check.verifyObject(settings, 'Invalid settings');
     check.verifyObject(callbacks, 'Invalid callbacks');
     check.verifyFunction(callbacks.processNode, 'Invalid processNode callback');
     check.verifyFunction(callbacks.createScope, 'Invalid createScope callback');
 
     syntaxes = syntaxDefinitions.get(settings);
 
-    visitNodes(tree);
+    visitNodes(tree.body);
 
     function visitNodes (nodes, assignedName) {
-        check.verifyArray(tree, 'Invalid syntax tree');
-
         tree.forEach(function (node) {
             visitNode(node, assignedName);
         });
