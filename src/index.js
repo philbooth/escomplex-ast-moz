@@ -5,6 +5,7 @@
 var check, syntaxDefinitions;
 
 check = require('check-types');
+safeName = require('./safeName');
 syntaxDefinitions = require('./syntax');
 
 exports.walk = walk;
@@ -39,7 +40,7 @@ function walk (tree, settings, callbacks) {
                 callbacks.processNode(node, syntax);
 
                 if (syntax.newScope) {
-                    callbacks.createScope(node.id, assignedName, node.loc, node.params.length);
+                    callbacks.createScope(safeName(node.id, assignedName), node.loc, node.params.length);
                 }
 
                 visitChildren(node);
