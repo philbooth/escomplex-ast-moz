@@ -19,6 +19,7 @@ function walk (tree, settings, callbacks) {
     check.verifyObject(callbacks, 'Invalid callbacks');
     check.verifyFunction(callbacks.processNode, 'Invalid processNode callback');
     check.verifyFunction(callbacks.createScope, 'Invalid createScope callback');
+    check.verifyFunction(callbacks.popScope, 'Invalid popScope callback');
 
     syntaxes = syntaxDefinitions.get(settings);
 
@@ -44,6 +45,10 @@ function walk (tree, settings, callbacks) {
                 }
 
                 visitChildren(node);
+
+                if (syntax.newScope) {
+                    callbacks.popScope();
+                }
             }
         }
     }
