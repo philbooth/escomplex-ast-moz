@@ -2,7 +2,7 @@
 
 'use strict';
 
-var check, syntaxDefinitions;
+var check, safeName, syntaxDefinitions;
 
 check = require('check-types');
 safeName = require('./safeName');
@@ -11,7 +11,7 @@ syntaxDefinitions = require('./syntax');
 exports.walk = walk;
 
 function walk (tree, settings, callbacks) {
-    var syntaxes
+    var syntaxes;
 
     check.verifyObject(tree, 'Invalid syntax tree');
     check.verifyArray(tree.body, 'Invalid syntax tree body');
@@ -55,8 +55,7 @@ function walk (tree, settings, callbacks) {
             syntax.children.forEach(function (child) {
                 visitChild(
                     node[child],
-                    check.isFunction(syntax.assignableName) ? syntax.assignableName(node) : '',
-                    currentReport
+                    check.isFunction(syntax.assignableName) ? syntax.assignableName(node) : ''
                 );
             });
         }
