@@ -25,7 +25,7 @@ function walk (tree, settings, callbacks) {
     visitNodes(tree.body);
 
     function visitNodes (nodes, assignedName) {
-        tree.forEach(function (node) {
+        nodes.forEach(function (node) {
             visitNode(node, assignedName);
         });
     }
