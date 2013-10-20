@@ -13,7 +13,7 @@ function walk (tree, settings, callbacks) {
     var syntaxes
 
     check.verifyObject(tree, 'Invalid syntax tree');
-    check.verifyArray(tree.body, 'Invalid syntax tree');
+    check.verifyArray(tree.body, 'Invalid syntax tree body');
     check.verifyObject(settings, 'Invalid settings');
     check.verifyObject(callbacks, 'Invalid callbacks');
     check.verifyFunction(callbacks.processNode, 'Invalid processNode callback');
