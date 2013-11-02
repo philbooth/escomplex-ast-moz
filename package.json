@@ -1,6 +1,6 @@
 {
     "name": "escomplex-ast-moz",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "Mozilla-format AST walker for escomplex.",
     "homepage": "https://github.com/philbooth/escomplex-ast-moz",
     "bugs": "https://github.com/philbooth/escomplex-ast-moz/issues",
