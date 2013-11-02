@@ -11,7 +11,7 @@ function get () {
     return traits.actualise(
         0, 0, undefined,
         function (node) {
-            if (check.isString(node.value)) {
+            if (check.string(node.value)) {
                 // Avoid conflicts between string literals and identifiers.
                 return '"' + node.value + '"';
             }

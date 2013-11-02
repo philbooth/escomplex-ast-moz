@@ -26,8 +26,8 @@
         "walker"
     ],
     "dependencies": {
-        "check-types": "0.7.x",
-        "escomplex-traits": "0.1.x"
+        "check-types": "1.1.x",
+        "escomplex-traits": "0.2.x"
     },
     "devDependencies": {
         "jshint": "2.1.x",

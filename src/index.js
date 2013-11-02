@@ -13,13 +13,13 @@ exports.walk = walk;
 function walk (tree, settings, callbacks) {
     var syntaxes;
 
-    check.verifyObject(tree, 'Invalid syntax tree');
-    check.verifyArray(tree.body, 'Invalid syntax tree body');
-    check.verifyObject(settings, 'Invalid settings');
-    check.verifyObject(callbacks, 'Invalid callbacks');
-    check.verifyFunction(callbacks.processNode, 'Invalid processNode callback');
-    check.verifyFunction(callbacks.createScope, 'Invalid createScope callback');
-    check.verifyFunction(callbacks.popScope, 'Invalid popScope callback');
+    check.verify.object(tree, 'Invalid syntax tree');
+    check.verify.array(tree.body, 'Invalid syntax tree body');
+    check.verify.object(settings, 'Invalid settings');
+    check.verify.object(callbacks, 'Invalid callbacks');
+    check.verify.fn(callbacks.processNode, 'Invalid processNode callback');
+    check.verify.fn(callbacks.createScope, 'Invalid createScope callback');
+    check.verify.fn(callbacks.popScope, 'Invalid popScope callback');
 
     syntaxes = syntaxDefinitions.get(settings);
 
@@ -34,10 +34,10 @@ function walk (tree, settings, callbacks) {
     function visitNode (node, assignedName) {
         var syntax;
 
-        if (check.isObject(node)) {
+        if (check.object(node)) {
             syntax = syntaxes[node.type];
 
-            if (check.isObject(syntax)) {
+            if (check.object(syntax)) {
                 callbacks.processNode(node, syntax);
 
                 if (syntax.newScope) {
@@ -56,18 +56,18 @@ function walk (tree, settings, callbacks) {
     function visitChildren (node) {
         var syntax = syntaxes[node.type];
 
-        if (check.isArray(syntax.children)) {
+        if (check.array(syntax.children)) {
             syntax.children.forEach(function (child) {
                 visitChild(
                     node[child],
-                    check.isFunction(syntax.assignableName) ? syntax.assignableName(node) : ''
+                    check.fn(syntax.assignableName) ? syntax.assignableName(node) : ''
                 );
             });
         }
     }
 
     function visitChild (child, assignedName) {
-        var visitor = check.isArray(child) ? visitNodes : visitNode;
+        var visitor = check.array(child) ? visitNodes : visitNode;
         visitor(child, assignedName);
     }
 }
