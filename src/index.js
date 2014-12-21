@@ -13,13 +13,13 @@ exports.walk = walk;
 function walk (tree, settings, callbacks) {
     var syntaxes;
 
-    check.verify.object(tree, 'Invalid syntax tree');
-    check.verify.array(tree.body, 'Invalid syntax tree body');
-    check.verify.object(settings, 'Invalid settings');
-    check.verify.object(callbacks, 'Invalid callbacks');
-    check.verify.fn(callbacks.processNode, 'Invalid processNode callback');
-    check.verify.fn(callbacks.createScope, 'Invalid createScope callback');
-    check.verify.fn(callbacks.popScope, 'Invalid popScope callback');
+    check.assert.object(tree, 'Invalid syntax tree');
+    check.assert.array(tree.body, 'Invalid syntax tree body');
+    check.assert.object(settings, 'Invalid settings');
+    check.assert.object(callbacks, 'Invalid callbacks');
+    check.assert.function(callbacks.processNode, 'Invalid processNode callback');
+    check.assert.function(callbacks.createScope, 'Invalid createScope callback');
+    check.assert.function(callbacks.popScope, 'Invalid popScope callback');
 
     syntaxes = syntaxDefinitions.get(settings);
 
@@ -60,7 +60,7 @@ function walk (tree, settings, callbacks) {
             syntax.children.forEach(function (child) {
                 visitChild(
                     node[child],
-                    check.fn(syntax.assignableName) ? syntax.assignableName(node) : ''
+                    check.function(syntax.assignableName) ? syntax.assignableName(node) : ''
                 );
             });
         }
