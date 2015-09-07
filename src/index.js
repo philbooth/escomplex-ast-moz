@@ -10,6 +10,12 @@ syntaxDefinitions = require('./syntax');
 
 exports.walk = walk;
 
+// Settings
+// - trycatch (Boolean)
+// - forin (Boolean)
+// - logicalor (Boolean)
+// - switchcase (Boolean)
+//
 function walk (tree, settings, callbacks) {
     var syntaxes;
 
