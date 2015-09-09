@@ -1,8 +1,10 @@
 # escomplex-ast-moz
 
-[![Build status][ci-image]][ci-status]
+:exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation:
 
-**NOTE: This project is no longer maintained. If you're interested in taking ownership, please contact me.**
+**NOTE: This fork is no longer maintained. Use [Jared's fork](https://github.com/jared-stilwell/escomplex-ast-moz) instead.**
+
+:exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation:
 
 [Mozilla-format AST][parserapi] walker
 for [escomplex][escomplex].
@@ -11,9 +13,6 @@ for [escomplex][escomplex].
 
 [MIT][license]
 
-[ci-image]: https://secure.travis-ci.org/philbooth/escomplex-ast-moz.png?branch=master
-[ci-status]: http://travis-ci.org/#!/philbooth/escomplex-ast-moz
 [parserapi]: https://developer.mozilla.org/en-US/docs/SpiderMonkey/Parser_API
 [escomplex]: https://github.com/philbooth/escomplex
 [license]: https://github.com/philbooth/escomplex-ast-moz/blob/master/COPYING
-
