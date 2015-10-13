@@ -26,7 +26,7 @@
     "walker"
   ],
   "dependencies": {
-    "check-types": "3.3.x",
+    "check-types": "~4",
     "escomplex-traits": "0.2.x"
   },
   "devDependencies": {
