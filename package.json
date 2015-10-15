@@ -30,7 +30,7 @@
     "escomplex-traits": "0.2.x"
   },
   "devDependencies": {
-    "chai": "3.2.x",
+    "chai": "^3.3.0",
     "esprima": "2.6.x",
     "jshint": "2.8.x",
     "mocha": "2.3.x",
